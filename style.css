@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Coiny&family=DynaPuff:wght@400..700&family=Galindo&family=Griffy&family=Lexend+Deca:wght@100..900&family=Lobster&family=Mogra&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@500&family=Ranchers&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Rubik+Puddles&display=swap');
+*{
+    cursor: url("c_water_cursor.cur"),auto;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(76, 202, 252);
+    padding-right: 0px;
+    overflow-x: hidden; 
+}
+.logo img{
+    width: 156px;
+    height: 156px;   
+}
+.logo{
+    margin-right: auto;
+    margin-left: 10px;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.content a{
+    text-decoration: none;
+    color: rgba(1,106,200,255);
+    font-family: "Coiny", system-ui;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 30px;
+}
+.content a:hover{
+    transition: font-weight .3s;
+    transition: font-family .3s;
+    font-weight: 800;
+    font-family: "Rubik Puddles", system-ui;
+}
+
+.navbar{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.img img{
+    width: 100%;
+    border-bottom: 5px  solid rgba(255,208,39,255);
+    border-top: 5px  solid rgba(255,208,39,255);
+    margin: 0;
+    padding: 0;
+}
+.img h1, p{
+    font-family: "DynaPuff", system-ui;
+    font-size: larger;
+    color: rgb(4,94,138);
+}
+.cards{
+    height: auto;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 190px;
+}
+.p{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    
+}
+.banner{
+    width: 100%;
+    height: auto;
+
+}
+.card{
+    width: 350px;
+    height: 350px;
+    background-color: rgb(44,131,204);
+    box-shadow: inset 0px 0px 5px 5px aqua;
+    border-radius: 5px;
+    position: relative;
+}
+.card img{
+    position: absolute;
+    width: 50%;
+    left: 90px;
+    top: 20px;
+    transform: rotate(0deg);
+    animation: shake .1s linear infinite;
+    animation-play-state: paused;
+}
+.card h2{
+    display: none;
+}
+.card img:hover{
+    animation-play-state: running;
+}
+
+@keyframes shake {
+    0%{
+        transform: rotate(180deg);
+    }
+    50%{
+        transform: rotate(176deg);
+    }
+    100%{
+        transform: rotate(180deg);
+    }
+}
+
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+
+}
+.card::before,.card::after{
+    position: absolute;
+    content: '';
+    width: 102%;
+    height: 102%;
+    background:linear-gradient(var(--angle),transparent 70%,rgba(255,208,39,255));
+    z-index: -1;
+    right: -4px;
+    top: -4px;
+    border-radius: 5px;
+    animation: 3s tuyok linear infinite ;
+    filter: blur(5px);
+}
+.card::after{
+    width: 105%;
+    height: 105%;
+    right: -10px;
+    top: -10px;
+    background:linear-gradient(var(--angle),transparent 70%,rgba(255,208,39,255));
+    filter: blur(10px);
+
+}
+@keyframes tuyok {
+    0%{
+        --angle:0deg;
+    }
+    25%{
+        --angle:90deg;
+    }
+    25%{
+        --angle:180deg;
+    }
+    100%{
+        --angle:360deg;
+    }
+    
+}
+footer{
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    height: auto;
+    background-color: aliceblue;
+    margin-top: 30px;
+    padding: 3px;
+    background-color: rgb(4,43,66);
+    color: rgb(44,131,204);
+    font-size: smaller;
+    
+}
+footer p{
+    margin: 0;
+}
+
+@media screen and (max-width:1095px) {
+    nav{
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+    }
+    .navbar{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 0px;
+
+    }
+    .logo{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-left: 0%;
+    }
+    .content{
+        display: flex;
+        justify-content: center;
+        border-bottom: solid 2px rgb(44,131,204);
+        width: 100%;
+        height: auto;
+        padding: 0%;
+    }
+    .content a{
+        font-size: 20px;
+    }
+    .card{
+        width: 95%;   
+    }
+    .cards{
+        row-gap: 10px;
+        column-gap: 0px;
+    }
+    .card::before,.card::after{
+        opacity: 0;
+    }
+    .card img{
+        position: absolute;
+        width: 150px;
+        left: 100px;
+        top: 20px;
+        display: none;
+    }
+    .card h2{
+        display: block;
+        display: flex;
+        align-self: center;
+        justify-content: center;
+        padding-top: 150px;
+        font-family: "Coiny", system-ui;
+        color:  rgba(1,43,65,255);
+        font-size: xx-large;
+    }
+}
+@media screen and (max-width:1390px) {
+    .cards{
+        column-gap: 20px;
+    }
+}
+@media screen and (max-width:1072px) {
+    .form{
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+    .submit button {
+        width: 100%;
+        
+    }
+
+}
+.formcontainer {
+    padding: 30px;
+    margin-top: 30px;
+
+}
+.form{
+    width: 100%;
+    display: flex;
+    justify-self: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+.form label{
+    padding-right: 100px;
+    width: 100px;
+    font-family: "Galindo", sans-serif;
+}
+.form input,.form select,.form textarea{
+    width: 90%;
+    flex: 1;
+    border: 5px solid rgba(1,43,65,255);
+    height: 30px;
+    border-radius: 10px;
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 500;
+}
+.form :placeholder-shown{
+    padding-left: 5px;
+    
+}
+.form textarea{
+    height: 120px;
+    resize: none;
+}
+.submit button {
+    background-color: rgba(1,43,65,255); 
+    color: aqua;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    justify-self: end;
+
+}
